@@ -63,7 +63,6 @@ export default function CategoryCard({
             <p className="font-display text-[16px] leading-tight text-white">
               {category.name}
             </p>
-            <p className="mt-1 text-[13px] leading-snug text-white/45">{category.note}</p>
           </div>
 
           <div className="flex items-end justify-between gap-3">

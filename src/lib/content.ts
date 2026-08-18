@@ -8,7 +8,7 @@
 
 export const site = {
   name: "Chithra Prakash",
-  role: "Content & Copywriter",
+  role: "Content Writer",
   description:
     "I'm Chithra, a content writer with 2 years of experience crafting content across social media, digital campaigns, brand copy, blogs, editorials and scripts.",
   email: "kvchithraprakaash@gmail.com",
@@ -60,6 +60,8 @@ export const about = {
 
 export type WorkItem = {
   company: string;
+  /** Her title there. Sits under the company, above what the work actually was. */
+  role?: string;
   period: string;
   description: string;
   /** The one result worth pulling out of the line and setting big. */
@@ -81,17 +83,20 @@ export const writingHeadline = "Selected Works";
 export const work: WorkItem[] = [
   {
     company: "Happiest Health",
+    role: "Executive Content Writer",
     period: "Oct 2025 – Present",
     description: "Copies, scripts & social media management, brief to execution",
     href: "https://www.instagram.com/happiesthealthmagazine?igsh=MXI0dDlibmwzcXhxeA==",
   },
   {
     company: "Nextvision Studio (Freelance)",
+    role: "Content Writer",
     period: "Jan 2026 – Present",
     description: "Wedding & other event management social media, reels to carousels",
   },
   {
     company: "Screen Interactiv",
+    role: "Client Management Associate",
     period: "June 2024 – Sept 2025",
     description:
       "Multi-format content across platforms for multiple clients, including furniture brands and home security solutions",
@@ -103,6 +108,7 @@ export const work: WorkItem[] = [
   },
   {
     company: "IndiaMedToday",
+    role: "Journalist",
     period: "Aug 2024 – Sept 2025",
     // Verbatim from the PDF — the line ends here in the source document.
     description: "B2B healthcare feature",
@@ -269,120 +275,12 @@ export const writing: WritingItem[] = [
     preview: "/previews/article-junk-food-ads.jpg",
   },
   {
-    title: "Instagram carousel",
-    client: "",
-    kind: "Carousel",
-    category: "social-media",
-    href: "https://www.instagram.com/p/DZujpfsmjeo/",
-    embed: "DZujpfsmjeo",
-    embedType: "p",
-  },
-  {
-    title: "Instagram carousel",
-    client: "",
-    kind: "Carousel",
-    category: "social-media",
-    href: "https://www.instagram.com/p/DY7GQkPGskt/",
-    embed: "DY7GQkPGskt",
-    embedType: "p",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DWVp48YDluv/",
-    embed: "DWVp48YDluv",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DWf6V2_EfL9/",
-    embed: "DWf6V2_EfL9",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DWq8A1gEswZ/",
-    embed: "DWq8A1gEswZ",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DNxsXl-4heV/",
-    embed: "DNxsXl-4heV",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DM7B-DxvD8K/",
-    embed: "DM7B-DxvD8K",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DNZ0YUnhfrR/",
-    embed: "DNZ0YUnhfrR",
-    embedType: "reel",
-  },
-  {
-    title: "Instagram reel",
-    client: "",
-    kind: "Reel",
-    category: "social-media",
-    href: "https://www.instagram.com/reel/DMcm2V9TcyU/",
-    embed: "DMcm2V9TcyU",
-    embedType: "reel",
-  },
-  {
     title: "Instagram post",
     client: "",
     kind: "Post",
     category: "social-media",
-    href: "https://www.instagram.com/p/DL9ya_6zzpY/",
-    embed: "DL9ya_6zzpY",
-    embedType: "p",
-  },
-  {
-    title: "Instagram post",
-    client: "",
-    kind: "Post",
-    category: "social-media",
-    href: "https://www.instagram.com/p/DB_W3iWydhM/",
-    embed: "DB_W3iWydhM",
-    embedType: "p",
-  },
-  {
-    title: "Instagram post",
-    client: "",
-    kind: "Post",
-    category: "social-media",
-    href: "https://www.instagram.com/p/C-7a1AsoNgE/",
-    embed: "C-7a1AsoNgE",
-    embedType: "p",
-  },
-  {
-    title: "Instagram post",
-    client: "",
-    kind: "Post",
-    category: "social-media",
-    href: "https://www.instagram.com/p/DDZIJDAyq0_/",
-    embed: "DDZIJDAyq0_",
+    href: "https://www.instagram.com/p/DFsUAcbqGwP/",
+    embed: "DFsUAcbqGwP",
     embedType: "p",
   },
   {
@@ -399,8 +297,116 @@ export const writing: WritingItem[] = [
     client: "",
     kind: "Post",
     category: "social-media",
-    href: "https://www.instagram.com/p/DFsUAcbqGwP/",
-    embed: "DFsUAcbqGwP",
+    href: "https://www.instagram.com/p/DDZIJDAyq0_/",
+    embed: "DDZIJDAyq0_",
+    embedType: "p",
+  },
+  {
+    title: "Instagram post",
+    client: "",
+    kind: "Post",
+    category: "social-media",
+    href: "https://www.instagram.com/p/C-7a1AsoNgE/",
+    embed: "C-7a1AsoNgE",
+    embedType: "p",
+  },
+  {
+    title: "Instagram post",
+    client: "",
+    kind: "Post",
+    category: "social-media",
+    href: "https://www.instagram.com/p/DB_W3iWydhM/",
+    embed: "DB_W3iWydhM",
+    embedType: "p",
+  },
+  {
+    title: "Instagram post",
+    client: "",
+    kind: "Post",
+    category: "social-media",
+    href: "https://www.instagram.com/p/DL9ya_6zzpY/",
+    embed: "DL9ya_6zzpY",
+    embedType: "p",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DMcm2V9TcyU/",
+    embed: "DMcm2V9TcyU",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DNZ0YUnhfrR/",
+    embed: "DNZ0YUnhfrR",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DM7B-DxvD8K/",
+    embed: "DM7B-DxvD8K",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DNxsXl-4heV/",
+    embed: "DNxsXl-4heV",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DWq8A1gEswZ/",
+    embed: "DWq8A1gEswZ",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DWf6V2_EfL9/",
+    embed: "DWf6V2_EfL9",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram reel",
+    client: "",
+    kind: "Reel",
+    category: "social-media",
+    href: "https://www.instagram.com/reel/DWVp48YDluv/",
+    embed: "DWVp48YDluv",
+    embedType: "reel",
+  },
+  {
+    title: "Instagram carousel",
+    client: "",
+    kind: "Carousel",
+    category: "social-media",
+    href: "https://www.instagram.com/p/DY7GQkPGskt/",
+    embed: "DY7GQkPGskt",
+    embedType: "p",
+  },
+  {
+    title: "Instagram carousel",
+    client: "",
+    kind: "Carousel",
+    category: "social-media",
+    href: "https://www.instagram.com/p/DZujpfsmjeo/",
+    embed: "DZujpfsmjeo",
     embedType: "p",
   },
   {
@@ -542,16 +548,20 @@ export const archivedWriting: WritingItem[] = [
  * frame), and filing them together would mean the day one fills up, the
  * other's emptiness is hidden behind it.
  */
-export type Category = { slug: string; name: string; note: string };
+export type Category = { slug: string; name: string };
 
-/** `note` names the actual clients or output — never a marketing line. */
+/**
+ * Name and count, nothing else. Client names and descriptor words were doing
+ * the card's job twice — the piece itself names its client once you're inside,
+ * and "Newsletters / 09 Pieces" needs no adjective to be understood.
+ */
 export const categories: Category[] = [
-  { slug: "blogs", name: "Blogs", note: "Amberstone, Kingsmen" },
-  { slug: "website-content", name: "Website content", note: "Amberstone, Vamsiram" },
-  { slug: "articles", name: "Articles", note: "IndiaMedToday, New Indian Express" },
-  { slug: "social-media", name: "Social media", note: "Reels, carousels & campaigns" },
-  { slug: "newsletters", name: "Newsletters", note: "Design & editorial" },
-  { slug: "posters", name: "Posters", note: "Campaign artwork" },
+  { slug: "blogs", name: "Blogs" },
+  { slug: "website-content", name: "Website content" },
+  { slug: "articles", name: "Articles" },
+  { slug: "social-media", name: "Social media" },
+  { slug: "newsletters", name: "Newsletters" },
+  { slug: "posters", name: "Posters" },
 ];
 
 /** Every category, in order, with its pieces — empty ones included. */

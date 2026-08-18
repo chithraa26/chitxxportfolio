@@ -74,6 +74,18 @@ export default function Work() {
                   )}
                 </h3>
 
+                {/*
+                  Title sits between the company and the work: the company
+                  answers "where", the title answers "as what", and the line
+                  below answers "doing what". Reading down the spine gives you
+                  the whole role in three beats without a paragraph.
+                */}
+                {item.role && (
+                  <p className="mt-2 font-display text-[15px] text-accent md:text-[16px]">
+                    {item.role}
+                  </p>
+                )}
+
                 <p className="mx-auto mt-3 max-w-[52ch] text-[16px] leading-[1.6] text-ink-soft md:text-[17px]">
                   {item.description}
                 </p>

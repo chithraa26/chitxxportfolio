@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!category) return {};
   return {
     title: category.name,
-    description: `${category.name} written by ${site.name} — ${category.note}.`,
+    description: `${category.name} by ${site.name}.`,
   };
 }
 
@@ -77,7 +77,7 @@ export default async function CategoryPage({
                 {category.name}
               </h1>
               <p className="label mt-4 text-accent-muted">
-                {items.length} {items.length === 1 ? "piece" : "pieces"} — {category.note}
+                {items.length} {items.length === 1 ? "piece" : "pieces"}
               </p>
             </Reveal>
           </div>

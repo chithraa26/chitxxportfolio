@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — the single source of truth.
+   Tailwind v4 is CSS-first: everything declared in @theme becomes
+   a real utility (bg-paper, text-ink, rounded-card, shadow-snapshot).
+   There is no tailwind.config.ts to keep in sync. This file IS the config.
+   Never hardcode a hex value in a component.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* Palette — warm paper, wet ink, one espresso accent */
+  --color-paper: #ffffff; /* the page */
+  --color-card: #f7f7f7; /* off-white raised surfaces */
+  --color-ink: #0a0a0a; /* black text */
+  --color-ink-soft: #55585c; /* captions, meta, dates */
+  --color-paper-soft: #ffffffbf; /* secondary text on inverted/dark sections */
+  --color-accent: #5b4636;
+  --color-accent-muted: #8a8d91;
+  --color-line: #e6e6e6;
+
+  /* Type */
+  /* Headings and body share one family; the serif survives for the hero line */
+  --font-display: var(--font-inter);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+
+  /* Radius — neat, not bubbly */
+  --radius-card: 16px;
+  --radius-btn: 8px;
+  --radius-photo: 4px; /* printed-photo edge, not an app card */
+
+  /* Elevation — one soft warm shadow, no layered drama */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-card-hov: 0 12px 32px rgba(0, 0, 0, 0.09);
+  --shadow-snapshot: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Motion */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    /* Lenis drives smooth scroll; this is the no-JS / reduced-motion fallback */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  /* Lenis requirement: it owns scroll, so the native smooth behaviour must go */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Display type is Inter now: tight tracking is what gives it presence */
+  .font-display {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* The hero line only — Fraunces' soft optical cut, never sharp */
+  .font-serif {
+    font-variation-settings: "SOFT" 40, "WONK" 0;
+  }
+
+  /* Body copy never exceeds 62ch — hard rule from the type guide */
+  .measure {
+    max-width: 62ch;
+  }
+
+  /* Eyebrows, nav items, tags, dates */
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  @media (min-width: 480px) {
+    .label {
+      font-size: 12px;
+    }
+  }
+
+  /*
+    Gutter and rhythm are FLUID, not stepped.
+    They used to jump from 20px to 24-80px at exactly 768px, which left every
+    tablet width served by phone spacing — the reason the middle breakpoints
+    felt thin. clamp() interpolates the whole way, so 600px and 900px each get
+    padding proportional to themselves instead of inheriting a neighbour's.
+  */
+  .section-x {
+    padding-inline: clamp(20px, 5vw, 80px);
+  }
+  .section-y {
+    padding-block: clamp(64px, 10vw, 128px);
+  }
+  /* Same fluid rhythm for sections that only pad their bottom */
+  .section-pb {
+    padding-bottom: clamp(64px, 10vw, 128px);
+  }
+  /*
+    Anchors land clear of the FLOATING pill, which sits lower than a normal
+    bar (offset + its own height), so this is bigger than it looks.
+  */
+  section[id] {
+    scroll-margin-top: clamp(92px, 12vw, 124px);
+  }
+}
+
+/* Skills marquee — slow, subtle, pauses for anyone who asked it to */
+@keyframes drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-drift {
+  animation: drift 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

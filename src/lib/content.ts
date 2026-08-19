@@ -14,6 +14,7 @@ export const site = {
   email: "kvchithraprakaash@gmail.com",
   phone: "7306043032",
   linkedin: "https://www.linkedin.com/in/chithra-prakash/",
+  resume: "/chithra-prakash-resume.pdf",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
 
@@ -21,6 +22,7 @@ export const nav = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/#about" },
+  { label: "Resume", href: "/chithra-prakash-resume.pdf" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -415,67 +417,54 @@ export const writing: WritingItem[] = [
     embedType: "p",
   },
   {
-    title: "Newsletter 01",
+    title: "October Newsletter",
     client: "",
     kind: "Newsletter",
     category: "newsletters",
-    image: "/gallery/newsletter-1.jpeg",
+    href: "/newsletters/october.pdf",
+    // Page one, rendered once and committed — the tile is the cover, the
+    // click is the whole document.
+    image: "/previews/newsletter-october.jpg",
   },
   {
-    title: "Newsletter 02",
+    title: "November Newsletter",
     client: "",
     kind: "Newsletter",
     category: "newsletters",
-    image: "/gallery/newsletter-2.jpeg",
+    href: "/newsletters/november.pdf",
+    // Page one, rendered once and committed — the tile is the cover, the
+    // click is the whole document.
+    image: "/previews/newsletter-november.jpg",
   },
   {
-    title: "Newsletter 03",
+    title: "December Newsletter",
     client: "",
     kind: "Newsletter",
     category: "newsletters",
-    image: "/gallery/newsletter-3.jpeg",
+    href: "/newsletters/december.pdf",
+    // Page one, rendered once and committed — the tile is the cover, the
+    // click is the whole document.
+    image: "/previews/newsletter-december.jpg",
   },
   {
-    title: "Newsletter 04",
+    title: "January Newsletter",
     client: "",
     kind: "Newsletter",
     category: "newsletters",
-    image: "/gallery/newsletter-4.jpeg",
+    href: "/newsletters/january.pdf",
+    // Page one, rendered once and committed — the tile is the cover, the
+    // click is the whole document.
+    image: "/previews/newsletter-january.jpg",
   },
   {
-    title: "Newsletter 05",
+    title: "February Newsletter",
     client: "",
     kind: "Newsletter",
     category: "newsletters",
-    image: "/gallery/newsletter-5.jpeg",
-  },
-  {
-    title: "Newsletter 06",
-    client: "",
-    kind: "Newsletter",
-    category: "newsletters",
-    image: "/gallery/newsletter-6.jpeg",
-  },
-  {
-    title: "Newsletter 07",
-    client: "",
-    kind: "Newsletter",
-    category: "newsletters",
-    image: "/gallery/newsletter-7.jpeg",
-  },
-  {
-    title: "Newsletter 08",
-    client: "",
-    kind: "Newsletter",
-    category: "newsletters",
-    image: "/gallery/newsletter-8.jpeg",
-  },
-  {
-    title: "Newsletter 09",
-    client: "",
-    kind: "Newsletter",
-    category: "newsletters",
-    image: "/gallery/newsletter-9.jpeg",
+    href: "/newsletters/february.pdf",
+    // Page one, rendered once and committed — the tile is the cover, the
+    // click is the whole document.
+    image: "/previews/newsletter-february.jpg",
   },
   {
     title: "Poster 01",
@@ -511,6 +500,13 @@ export const writing: WritingItem[] = [
     kind: "Poster",
     category: "posters",
     image: "/gallery/poster-5.jpeg",
+  },
+  {
+    title: "Poster 06",
+    client: "",
+    kind: "Poster",
+    category: "posters",
+    image: "/gallery/poster-6.jpeg",
   },
 ];
 

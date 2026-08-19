@@ -38,8 +38,18 @@ export default function Footer() {
                 />
               </h2>
 
-              {/* One subtle mark instead of a button */}
-              <LinkedIn />
+              {/* One subtle mark, one quiet link — no button */}
+              <div className="flex items-center gap-4">
+                <LinkedIn />
+                <a
+                  href={site.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label flex h-11 items-center rounded-full border border-white/25 px-5 text-white transition-colors duration-150 ease-default hover:border-white hover:bg-white hover:text-ink"
+                >
+                  Resume
+                </a>
+              </div>
 
               <div className="flex w-full flex-col items-center gap-1 border-t border-white/15 pt-6 sm:flex-row sm:justify-between">
                 <p className="font-display text-[15px] text-white">{site.name}</p>

@@ -19,6 +19,21 @@ function NavLink({
   onClick?: () => void;
   children: React.ReactNode;
 }) {
+  // A PDF isn't a route — it opens in its own tab so the site stays put behind it
+  if (href.endsWith(".pdf")) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    );
+  }
+
   if (href.includes("#")) {
     return (
       <a href={href} className={className} onClick={onClick}>

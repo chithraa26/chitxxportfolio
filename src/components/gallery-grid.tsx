@@ -9,8 +9,9 @@ import { lockScroll } from "./smooth-scroll";
 /**
  * DESIGN WORK — newsletters and posters.
  *
- * These aren't links. A newsletter has no URL to send you to; the artefact IS
- * the work, so the tile opens a lightbox rather than a new tab.
+ * Both are shown, not described: the tile is the piece itself rather than a
+ * title you have to trust. Where the click lands differs by kind — see the
+ * note on `viewable` below.
  *
  * Two decisions do the heavy lifting:
  *
@@ -27,13 +28,27 @@ export default function GalleryGrid({ items }: { items: WritingItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
 
+  /*
+    Two kinds of tile share this grid.
+
+    A NEWSLETTER has a document behind it: the tile shows page one and the
+    click opens the PDF. Trapping that in a lightbox would show you the cover
+    you already clicked and hide the thing you wanted.
+
+    A POSTER is the whole artefact. Nothing to open, so it opens in place.
+
+    The lightbox therefore indexes only the pieces without a destination —
+    otherwise the arrows would cycle onto covers that have no full view.
+  */
+  const viewable = items.filter((item) => !item.href);
+
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
     (delta: number) =>
       setOpen((current) =>
-        current === null ? null : (current + delta + items.length) % items.length,
+        current === null ? null : (current + delta + viewable.length) % viewable.length,
       ),
-    [items.length],
+    [viewable.length],
   );
 
   // Keyboard is the whole navigation model once the lightbox is open
@@ -54,32 +69,54 @@ export default function GalleryGrid({ items }: { items: WritingItem[] }) {
     return () => lockScroll(false);
   }, [open]);
 
-  const active = open === null ? null : items[open];
+  const active = open === null ? null : viewable[open];
 
   return (
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-        {items.map((item, i) => (
-          <button
-            key={item.image}
-            type="button"
-            onClick={() => setOpen(i)}
-            aria-label={`Open ${item.title}`}
-            className="group relative aspect-[2/3] overflow-hidden rounded-[14px] border border-line bg-card"
-          >
-            <Image
-              src={item.image!}
-              alt={item.title}
-              fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover object-top transition-transform duration-500 ease-default group-hover:scale-[1.04]"
-            />
-            {/* Reveals only on hover — the artwork owns the tile at rest */}
-            <span className="label absolute inset-x-0 bottom-0 bg-linear-to-t from-ink/80 to-transparent px-3 pt-8 pb-3 text-left text-white opacity-0 transition-opacity duration-200 ease-default group-hover:opacity-100">
-              View
-            </span>
-          </button>
-        ))}
+        {items.map((item) => {
+          const inner = (
+            <>
+              <Image
+                src={item.image!}
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover object-top transition-transform duration-500 ease-default group-hover:scale-[1.04]"
+              />
+              {/* Reveals only on hover — the artwork owns the tile at rest */}
+              <span className="label absolute inset-x-0 bottom-0 bg-linear-to-t from-ink/80 to-transparent px-3 pt-8 pb-3 text-left text-white opacity-0 transition-opacity duration-200 ease-default group-hover:opacity-100">
+                {item.href ? "Read PDF" : "View"}
+              </span>
+            </>
+          );
+
+          const tile =
+            "group relative aspect-[2/3] overflow-hidden rounded-[14px] border border-line bg-card";
+
+          return item.href ? (
+            <a
+              key={item.image}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read ${item.title} (PDF)`}
+              className={tile}
+            >
+              {inner}
+            </a>
+          ) : (
+            <button
+              key={item.image}
+              type="button"
+              onClick={() => setOpen(viewable.indexOf(item))}
+              aria-label={`Open ${item.title}`}
+              className={tile}
+            >
+              {inner}
+            </button>
+          );
+        })}
       </div>
 
       <AnimatePresence>
@@ -93,7 +130,7 @@ export default function GalleryGrid({ items }: { items: WritingItem[] }) {
             role="dialog"
             aria-modal="true"
             aria-label={active.title}
-            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-ink/92 p-4 backdrop-blur-md sm:p-8"
+            className="fixed inset-0 z-60 flex flex-col items-center justify-center gap-4 bg-ink/92 p-4 backdrop-blur-md sm:p-8"
           >
             <motion.div
               initial={reduced ? false : { opacity: 0, scale: 0.97 }}
@@ -120,7 +157,7 @@ export default function GalleryGrid({ items }: { items: WritingItem[] }) {
             >
               <Arrow direction="prev" onClick={() => step(-1)} />
               <span className="label text-white/70">
-                {open! + 1} / {items.length}
+                {open! + 1} / {viewable.length}
               </span>
               <Arrow direction="next" onClick={() => step(1)} />
             </div>

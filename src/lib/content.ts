@@ -85,26 +85,29 @@ export const work: WorkItem[] = [
     company: "Happiest Health",
     role: "Executive Content Writer",
     period: "Oct 2025 – Present",
-    description: "Copies, scripts & social media management, brief to execution",
-    href: "https://www.instagram.com/happiesthealthmagazine?igsh=MXI0dDlibmwzcXhxeA==",
+    description:
+      "Social media management and copywriting across marketing, newsletters, posters, scripts, placeholders and notifications.",
+    href: "https://www.happiesthealth.com/",
   },
   {
-    company: "Nextvision Studio (Freelance)",
-    role: "Content Writer",
+    company: "Nextvision Ads",
+    role: "Content Writer (Freelance)",
     period: "Jan 2026 – Present",
-    description: "Wedding & other event management social media, reels to carousels",
+    description:
+      "Social media content for weddings and events, from reels to carousels",
+    href: "https://www.instagram.com/nextvision.ads/",
   },
   {
     company: "Screen Interactiv",
     role: "Client Management Associate",
     period: "June 2024 – Sept 2025",
     description:
-      "Multi-format content across platforms for multiple clients, including furniture brands and home security solutions",
+      "Multi format content across furniture, home security and consumer brands",
     stat: {
       value: "50%",
       label: "of bookings driven in 3 months for one real estate client",
     },
-    href: "https://www.instagram.com/screen_interactiv?igsh=N3ZjZTk3YTBsMmRo",
+    href: "https://screeninteractiv.com/",
   },
   {
     company: "IndiaMedToday",
@@ -112,12 +115,14 @@ export const work: WorkItem[] = [
     period: "Aug 2024 – Sept 2025",
     // Verbatim from the PDF — the line ends here in the source document.
     description: "B2B healthcare feature",
-    href: "https://sites.google.com/view/chithra-prakash/home",
+    href: "https://indiamedtoday.com/",
   },
   {
     company: "The New Indian Express",
+    role: "Intern",
     period: "June 2023 – July 2023",
     description: "City reporter, Bangalore edition",
+    href: "https://www.newindianexpress.com/",
   },
 ];
 
@@ -586,7 +591,7 @@ export function writingIn(slug: string): WritingItem[] {
 export const socialAccounts = [
   {
     label: "Happiest Health",
-    href: "https://www.instagram.com/happiesthealthmagazine?igsh=MXI0dDlibmwzcXhxeA==",
+    href: "https://www.instagram.com/happiesthealthknowledge?igsh=MXI0dDlibmwzcXhxeA==&igsi=MXI0dDlibmwzcXhxeA==",
   },
   {
     label: "Amberstone",

@@ -86,7 +86,7 @@ export const work: WorkItem[] = [
     role: "Executive Content Writer",
     period: "Oct 2025 – Present",
     description:
-      "Social media management and copywriting across marketing, newsletters, posters, scripts, placeholders and notifications.",
+      "Social media management and copywriting across marketing, newsletters, posters, scripts, placeholders and notifications",
     href: "https://www.happiesthealth.com/",
   },
   {

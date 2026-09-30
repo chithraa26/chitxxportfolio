@@ -94,7 +94,7 @@ export const work: WorkItem[] = [
   {
     company: "Nextvision Ads",
     role: "Content Writer (Freelance)",
-    period: "Jan 2026 – June 2026",
+    period: "Jan 2026 – July 2026",
     description:
       "Social media content for weddings and events, from reels to carousels",
     href: "https://www.instagram.com/nextvision.ads/",
